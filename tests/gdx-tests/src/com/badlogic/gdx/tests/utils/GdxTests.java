@@ -74,8 +74,10 @@ import com.badlogic.gdx.tests.g3d.SkeletonTest;
 import com.badlogic.gdx.tests.g3d.TangentialAccelerationTest;
 import com.badlogic.gdx.tests.g3d.TextureArrayTest;
 import com.badlogic.gdx.tests.g3d.TextureRegion3DTest;
+import com.badlogic.gdx.tests.g3d.utils.DefaultTextureBinderTest;
 import com.badlogic.gdx.tests.gles2.HelloTriangle;
 import com.badlogic.gdx.tests.gles2.SimpleVertexShader;
+import com.badlogic.gdx.tests.gles3.InstancedRenderingTest;
 import com.badlogic.gdx.tests.net.NetAPITest;
 import com.badlogic.gdx.tests.superkoalio.SuperKoalio;
 import com.badlogic.gdx.utils.ObjectMap;
@@ -104,6 +106,7 @@ public class GdxTests {
 		Basic3DSceneTest.class,
 		Basic3DTest.class,
 		Benchmark3DTest.class,
+		BigMeshTest.class,
 		BitmapFontAlignmentTest.class,
 		BitmapFontDistanceFieldTest.class,
 		BitmapFontFlipTest.class,
@@ -120,14 +123,17 @@ public class GdxTests {
 		CollectionsTest.class,
 		ColorTest.class,
 		ContainerTest.class,
+		CoordinatesTest.class,
 		CpuSpriteBatchTest.class,
 		CullTest.class,
 		CursorTest.class,
 		DecalTest.class,
+		DefaultTextureBinderTest.class,
 		DelaunayTriangulatorTest.class,
 		DeltaTimeTest.class,
 		DirtyRenderingTest.class,
 		DisplayModeTest.class,
+		DownloadTest.class,
 		DragAndDropTest.class,
 		ETC1Test.class,
 //		EarClippingTriangulatorTest.class,
@@ -160,8 +166,10 @@ public class GdxTests {
 		ImmediateModeRendererTest.class,
 		IndexBufferObjectShaderTest.class,
 		InputTest.class,
+		InstancedRenderingTest.class,
 		IntegerBitmapFontTest.class,
 		InterpolationTest.class,
+		IntersectorOverlapConvexPolygonsTest.class,
 		InverseKinematicsTest.class,
 		IsometricTileTest.class,
 		KinematicBodyTest.class,
@@ -221,6 +229,7 @@ public class GdxTests {
 		ShaderTest.class,
 		ShadowMappingTest.class,
 		ShapeRendererTest.class,
+		ShapeRendererAlphaTest.class,
 		SimpleAnimationTest.class,
 		SimpleDecalTest.class,
 		SimpleStageCullingTest.class,
@@ -243,6 +252,7 @@ public class GdxTests {
 		TangentialAccelerationTest.class,
 		TextAreaTest.class,
 		TextAreaTest2.class,		
+		TextAreaTest3.class,
 		TextButtonTest.class,
 		TextInputDialogTest.class,
 		TextureAtlasTest.class,
@@ -329,7 +339,7 @@ public class GdxTests {
 		return names;
 	}
 
-	private static Class<? extends GdxTest> forName (String name) {
+	public static Class<? extends GdxTest> forName (String name) {
 		name = originalToObfuscated.get(name, name);
 		for (Class clazz : tests)
 			if (clazz.getSimpleName().equals(name)) return clazz;
